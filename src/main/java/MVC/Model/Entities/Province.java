@@ -3,18 +3,16 @@ package MVC.Model.Entities;
 import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Controller;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
-
+@Entity
 public class Province {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
     @OneToMany(targetEntity = Customer.class)

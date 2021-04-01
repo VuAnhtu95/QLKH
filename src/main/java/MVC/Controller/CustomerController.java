@@ -19,7 +19,7 @@ public class CustomerController {
 
     @GetMapping("/create-customer")
     public ModelAndView showCreateForm() {
-        ModelAndView modelAndView = new ModelAndView("/views/customer/create.html");
+        ModelAndView modelAndView = new ModelAndView("/customer/create.html");
         modelAndView.addObject("customer", new Customer());
         return modelAndView;
     }
@@ -27,7 +27,7 @@ public class CustomerController {
     @PostMapping("/create-customer")
     public ModelAndView saveCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.save(customer);
-        ModelAndView modelAndView = new ModelAndView("/views/customer/create.html");
+        ModelAndView modelAndView = new ModelAndView("/customer/create.html");
         modelAndView.addObject("customer", new Customer());
         modelAndView.addObject("message", "New customer created successfully");
         return modelAndView;
@@ -36,7 +36,7 @@ public class CustomerController {
     @GetMapping("/customers")
     public ModelAndView listCustomers() {
         List<Customer> customers = customerService.findAll();
-        ModelAndView modelAndView = new ModelAndView("/views/customer/list.html");
+        ModelAndView modelAndView = new ModelAndView("/customer/list.html");
         modelAndView.addObject("customers", customers);
         return modelAndView;
     }
@@ -45,7 +45,7 @@ public class CustomerController {
     public ModelAndView showEditForm(@PathVariable Long id) {
         Customer customer = customerService.findById(id);
         if (customer != null) {
-            ModelAndView modelAndView = new ModelAndView("/views/customer/edit.html");
+            ModelAndView modelAndView = new ModelAndView("/customer/edit.html");
             modelAndView.addObject("customer", customer);
             return modelAndView;
         } else {
@@ -57,7 +57,7 @@ public class CustomerController {
     @PostMapping("/edit-customer")
     public ModelAndView updateCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.save(customer);
-        ModelAndView modelAndView = new ModelAndView("/views/customer/edit.html");
+        ModelAndView modelAndView = new ModelAndView("/customer/edit.html");
         modelAndView.addObject("customer", customer);
         modelAndView.addObject("message", "Customer updated successfully");
         return modelAndView;
@@ -67,7 +67,7 @@ public class CustomerController {
     public ModelAndView showDeleteForm(@PathVariable Long id) {
         Customer customer = customerService.findById(id);
         if (customer != null) {
-            ModelAndView modelAndView = new ModelAndView("/views/customer/delete.html");
+            ModelAndView modelAndView = new ModelAndView("/customer/delete.html");
             modelAndView.addObject("customer", customer);
             return modelAndView;
 

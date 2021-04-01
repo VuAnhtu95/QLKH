@@ -3,9 +3,10 @@ package MVC.Model.Service;
 import MVC.Model.Entities.Province;
 import MVC.Repository.IProvinceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ProvinceService implements IProvinceService{
 
     @Autowired
