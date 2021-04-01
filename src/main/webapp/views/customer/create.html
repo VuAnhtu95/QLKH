@@ -26,6 +26,14 @@
             <td></td>
             <td><input type="submit" value="Create customer"></td>
         </tr>
+        <tr>
+            <td>Province:</td>
+            <td>
+                <select th:field="*{province}">
+                    <option th:each="p : ${provinces}" th:value="${p.id}" th:text="${p.name}"></option>
+                </select>
+            </td>
+        </tr>
     </table>
 </form>
 </body>

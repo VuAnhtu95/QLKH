@@ -1,7 +1,9 @@
 package MVC.Controller;
 
 import MVC.Model.Entities.Customer;
+import MVC.Model.Entities.Province;
 import MVC.Model.Service.ICustomerService;
+import MVC.Model.Service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,13 @@ import java.util.List;
 public class CustomerController {
     @Autowired
     private ICustomerService customerService;
+    @Autowired
+    private ProvinceService provinceService;
+
+    @ModelAttribute("provinces")
+    public List<Province> provinces(){
+        return provinceService.findAll();
+    }
 
     @GetMapping("/create-customer")
     public ModelAndView showCreateForm() {
