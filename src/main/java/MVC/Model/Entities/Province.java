@@ -20,6 +20,9 @@ public class Province {
     @OneToMany(targetEntity = Customer.class)
     private List<Customer> customers;
 
+    public Province() {
+    }
+
     public Province(Long id, String name, List<Customer> customers) {
         this.id = id;
         this.name = name;

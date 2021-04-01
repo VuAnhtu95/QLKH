@@ -1,18 +1,28 @@
-Model/Entities/Customer.java
- Model.Entities.Customer
-Model/Service/ICustomerService.java
- Model.Service.ICustomerService
-Repository/IGeneralRepository.java
- Repository.IGeneralRepository
-Model/Service/IGeneralService.java
- Model.Service.IGeneralService
-Controller/CustomerController.java
- Controller.CustomerController
-Model/Service/CustomerService.java
- Model.Service.CustomerService
+MVC/Controller/CustomerController.java
+ MVC.Controller.CustomerController
+MVC/Controller/ProvinceController.java
+ MVC.Controller.ProvinceController
+MVC/Repository/ICustomerRepository.java
+ MVC.Repository.ICustomerRepository
+MVC/Model/Entities/Province.java
+ MVC.Model.Entities.Province
+MVC/Repository/IProvinceRepository.java
+ MVC.Repository.IProvinceRepository
+MVC/Model/Service/IGeneralService.java
+ MVC.Model.Service.IGeneralService
+MVC/Model/Service/ProvinceService.java
+ MVC.Model.Service.ProvinceService
+MVC/Model/Service/CustomerService.java
+ MVC.Model.Service.CustomerService
 AppConfig.java
  AppConfig
 AppInit.java
  AppInit
-Repository/ICustomerRepository.java
- Repository.ICustomerRepository
+MVC/Model/Entities/Customer.java
+ MVC.Model.Entities.Customer
+MVC/Model/Service/IProvinceService.java
+ MVC.Model.Service.IProvinceService
+MVC/Repository/IGeneralRepository.java
+ MVC.Repository.IGeneralRepository
+MVC/Model/Service/ICustomerService.java
+ MVC.Model.Service.ICustomerService
