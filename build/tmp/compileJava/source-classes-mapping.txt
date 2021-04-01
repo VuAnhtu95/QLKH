@@ -1,20 +1,18 @@
-AppInit.java
- AppInit
+Model/Entities/Customer.java
+ Model.Entities.Customer
 Model/Service/ICustomerService.java
  Model.Service.ICustomerService
+Repository/IGeneralRepository.java
+ Repository.IGeneralRepository
+Model/Service/IGeneralService.java
+ Model.Service.IGeneralService
+Controller/CustomerController.java
+ Controller.CustomerController
 Model/Service/CustomerService.java
  Model.Service.CustomerService
 AppConfig.java
  AppConfig
-Repository/CustomerRepository.java
- Repository.CustomerRepository
-Model/Service/IGeneralService.java
- Model.Service.IGeneralService
-Model/Entities/Customer.java
- Model.Entities.Customer
+AppInit.java
+ AppInit
 Repository/ICustomerRepository.java
  Repository.ICustomerRepository
-Repository/IGeneralRepository.java
- Repository.IGeneralRepository
-Controller/CustomerController.java
- Controller.CustomerController
