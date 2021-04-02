@@ -1,6 +1,8 @@
 package MVC.Controller;
 
+import MVC.Model.Entities.Customer;
 import MVC.Model.Entities.Province;
+import MVC.Model.Service.ICustomerService;
 import MVC.Model.Service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ProvinceController {
+    @Autowired
+    private ICustomerService customerService;
     @Autowired
     private ProvinceService provinceService;
 
@@ -81,5 +85,20 @@ public class ProvinceController {
     public String deleteProvince(@ModelAttribute("province") Province province){
         provinceService.remove(province.getId());
         return "redirect:provinces";
+    }
+
+    @GetMapping("/view-province/{id}")
+    public ModelAndView viewProvince(@PathVariable("id") Long id){
+        Province province = provinceService.findById(id);
+        if(province == null){
+            return new ModelAndView("/error.404");
+        }
+
+        Iterable<Customer> customers = customerService.findAllByProvince(province);
+
+        ModelAndView modelAndView = new ModelAndView("/province/view");
+        modelAndView.addObject("province", province);
+        modelAndView.addObject("customers", customers);
+        return modelAndView;
     }
 }

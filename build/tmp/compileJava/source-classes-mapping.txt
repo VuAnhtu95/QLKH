@@ -1,9 +1,9 @@
 MVC/Model/Service/ProvinceService.java
  MVC.Model.Service.ProvinceService
-MVC/Model/Service/ICustomerService.java
- MVC.Model.Service.ICustomerService
-MVC/Repository/ICustomerRepository.java
- MVC.Repository.ICustomerRepository
+MVC/Model/Entities/Customer.java
+ MVC.Model.Entities.Customer
+MVC/ForMatter/ProvinceFormatter.java
+ MVC.ForMatter.ProvinceFormatter
 MVC/Model/Service/IProvinceService.java
  MVC.Model.Service.IProvinceService
 MVC/Repository/IProvinceRepository.java
@@ -12,19 +12,19 @@ MVC/Model/Service/IGeneralService.java
  MVC.Model.Service.IGeneralService
 MVC/Repository/IGeneralRepository.java
  MVC.Repository.IGeneralRepository
-AppConfig.java
- AppConfig
+MVC/Model/Entities/Province.java
+ MVC.Model.Entities.Province
+MVC/Repository/ICustomerRepository.java
+ MVC.Repository.ICustomerRepository
+MVC/Model/Service/ICustomerService.java
+ MVC.Model.Service.ICustomerService
+MVC/Model/Service/CustomerService.java
+ MVC.Model.Service.CustomerService
 MVC/Controller/ProvinceController.java
  MVC.Controller.ProvinceController
-MVC/ForMatter/ProvinceFormatter.java
- MVC.ForMatter.ProvinceFormatter
+AppConfig.java
+ AppConfig
 AppInit.java
  AppInit
 MVC/Controller/CustomerController.java
  MVC.Controller.CustomerController
-MVC/Model/Service/CustomerService.java
- MVC.Model.Service.CustomerService
-MVC/Model/Entities/Customer.java
- MVC.Model.Entities.Customer
-MVC/Model/Entities/Province.java
- MVC.Model.Entities.Province
