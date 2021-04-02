@@ -14,17 +14,17 @@ MVC/Repository/IGeneralRepository.java
  MVC.Repository.IGeneralRepository
 MVC/Model/Entities/Province.java
  MVC.Model.Entities.Province
-MVC/Repository/ICustomerRepository.java
- MVC.Repository.ICustomerRepository
+AppConfig.java
+ AppConfig
+AppInit.java
+ AppInit
 MVC/Model/Service/ICustomerService.java
  MVC.Model.Service.ICustomerService
 MVC/Model/Service/CustomerService.java
  MVC.Model.Service.CustomerService
 MVC/Controller/ProvinceController.java
  MVC.Controller.ProvinceController
-AppConfig.java
- AppConfig
-AppInit.java
- AppInit
+MVC/Repository/ICustomerRepository.java
+ MVC.Repository.ICustomerRepository
 MVC/Controller/CustomerController.java
  MVC.Controller.CustomerController
