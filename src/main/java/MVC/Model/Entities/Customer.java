@@ -1,6 +1,7 @@
 package MVC.Model.Entities;
-
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "customers")
@@ -9,7 +10,13 @@ public class Customer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+
+    @NotNull
+    @Size(min = 2,max = 30)
     private String firstName;
+
+    @NotNull
+    @Size(min = 2,max = 30)
     private String lastName;
     @ManyToOne
     @JoinColumn(name = "province_id")
