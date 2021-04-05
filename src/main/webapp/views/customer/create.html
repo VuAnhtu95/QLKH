@@ -25,6 +25,11 @@
             <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">ít nhất 2 ký tự</td>
         </tr>
         <tr>
+            <td>Email:</td>
+            <td><input type="text" th:field="*{email}"/></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">ít nhất 2 ký tự</td>
+        </tr>
+        <tr>
             <td></td>
             <td><input type="submit" value="Create customer"></td>
         </tr>

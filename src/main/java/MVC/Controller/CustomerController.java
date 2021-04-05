@@ -2,6 +2,7 @@ package MVC.Controller;
 
 import MVC.Model.Entities.Customer;
 import MVC.Model.Entities.Province;
+import MVC.Model.Service.DuplicateEmailException;
 import MVC.Model.Service.ICustomerService;
 import MVC.Model.Service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,25 +37,11 @@ public class CustomerController {
     }
 
     @PostMapping("/create-customer")
-    public ModelAndView saveCustomer(@Validated @ModelAttribute("customer") Customer customer, BindingResult bindingResult) {
-        if (bindingResult.hasFieldErrors()) {
-            ModelAndView modelAndView = new ModelAndView("/customer/create");
-            return modelAndView;
-        }
+    public ModelAndView saveCustomer(@Validated @ModelAttribute("customer") Customer customer, BindingResult bindingResult) throws DuplicateEmailException {
         customerService.save(customer);
-        ModelAndView modelAndView = new ModelAndView("/customer/create.html");
-        modelAndView.addObject("customer", new Customer());
-        modelAndView.addObject("message", "New customer created successfully");
-        return modelAndView;
+        return new ModelAndView("redirect:/customers");
     }
 
-//    @GetMapping("/customers")
-//    public ModelAndView listCustomers() {
-//        List<Customer> customers = customerService.findAll();
-//        ModelAndView modelAndView = new ModelAndView("/customer/list.html");
-//        modelAndView.addObject("customers", customers);
-//        return modelAndView;
-//    }
 
     @GetMapping("/edit-customer/{id}")
     public ModelAndView showEditForm(@PathVariable Long id) {
@@ -70,12 +57,12 @@ public class CustomerController {
     }
 
     @PostMapping("/edit-customer")
-    public ModelAndView updateCustomer(@ModelAttribute("customer") Customer customer) {
-        customerService.save(customer);
-        ModelAndView modelAndView = new ModelAndView("/customer/edit.html");
-        modelAndView.addObject("customer", customer);
-        modelAndView.addObject("message", "Customer updated successfully");
-        return modelAndView;
+    public ModelAndView updateCustomer(@ModelAttribute("customer") Customer customer) throws DuplicateEmailException {
+           customerService.save(customer);
+           ModelAndView modelAndView = new ModelAndView("/customer/edit.html");
+           modelAndView.addObject("customer", customer);
+           modelAndView.addObject("message", "Customer updated successfully");
+           return modelAndView;
     }
 
     @GetMapping("/delete-customer/{id}")
@@ -98,14 +85,6 @@ public class CustomerController {
         return "redirect:customers";
     }
 
-//    @GetMapping("/customers")
-//    public ModelAndView listCustomers(Pageable pageable){
-//        Page<Customer> customers = customerService.findAll(pageable);
-//        ModelAndView modelAndView = new ModelAndView("/customer/list");
-//        modelAndView.addObject("customers", customers);
-//        return modelAndView;
-//    }
-
     @GetMapping("/customers")
     public ModelAndView listCustomers(@RequestParam("s") Optional<String> s, Pageable pageable){
         Page<Customer> customers;
@@ -119,6 +98,10 @@ public class CustomerController {
         return modelAndView;
     }
 
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ModelAndView showInputNotAcceptable() {
+        return new ModelAndView("/customer/Exception");
+    }
 
 }
 
