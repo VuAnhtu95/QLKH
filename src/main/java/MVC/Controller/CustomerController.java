@@ -1,6 +1,7 @@
 package MVC.Controller;
 
 import MVC.Model.Entities.Customer;
+import MVC.Model.Entities.MyCounter;
 import MVC.Model.Entities.Province;
 import MVC.Model.Service.DuplicateEmailException;
 import MVC.Model.Service.ICustomerService;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@SessionAttributes("mycounter")
 public class CustomerController {
     @Autowired
     private ICustomerService customerService;
@@ -28,6 +30,12 @@ public class CustomerController {
     public List<Province> provinces(){
         return provinceService.findAll();
     }
+
+    @ModelAttribute("mycounter")
+    public MyCounter setUpCounter() {
+        return new MyCounter();
+    }
+
 
     @GetMapping("/create-customer")
     public ModelAndView showCreateForm() {
@@ -95,7 +103,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customers")
-    public ModelAndView listCustomers(@RequestParam("s") Optional<String> s, Pageable pageable){
+    public ModelAndView listCustomers(@RequestParam("s") Optional<String> s, Pageable pageable,@ModelAttribute("mycounter") MyCounter myCounter){
         Page<Customer> customers;
         if(s.isPresent()){
             customers = customerService.findAllByFirstNameContaining(s.get(), pageable);
@@ -104,6 +112,7 @@ public class CustomerController {
         }
         ModelAndView modelAndView = new ModelAndView("/customer/list");
         modelAndView.addObject("customers", customers);
+        myCounter.increment();
         return modelAndView;
     }
 

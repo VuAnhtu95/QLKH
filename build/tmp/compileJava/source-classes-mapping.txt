@@ -28,5 +28,9 @@ MVC/Model/Service/CustomerService.java
  MVC.Model.Service.CustomerService
 MVC/Model/Entities/Customer.java
  MVC.Model.Entities.Customer
+MVC/Model/Entities/MyCounter.java
+ MVC.Model.Entities.MyCounter
+MVC/Controller/CounterController.java
+ MVC.Controller.CounterController
 MVC/Controller/CustomerController.java
  MVC.Controller.CustomerController
