@@ -38,8 +38,17 @@ public class CustomerController {
 
     @PostMapping("/create-customer")
     public ModelAndView saveCustomer(@Validated @ModelAttribute("customer") Customer customer, BindingResult bindingResult) throws DuplicateEmailException {
-        customerService.save(customer);
-        return new ModelAndView("redirect:/customers");
+        ModelAndView modelAndView;
+        if (bindingResult.hasFieldErrors()) {
+            modelAndView = new ModelAndView("/customer/create");
+            return modelAndView;
+        } else {
+            this.customerService.save(customer);
+            modelAndView = new ModelAndView("/customer/create.html");
+            modelAndView.addObject("customer", new Customer());
+            modelAndView.addObject("message", "New customer created successfully");
+            return modelAndView;
+        }
     }
 
 
